@@ -77,14 +77,8 @@
 </p>
 
 <p align="center">
-  <img <img src="https://github.com/KristinaGurenkova/ElectronicJournal/blob/main/Screenshots/schedule.png">
-</br>Окно администратора
-</br> </br> </br>
-</p>
-
-<p align="center">
   <img <img src="https://github.com/KristinaGurenkova/FitnessRoom/blob/main/Screenshots/AddTrainers.png">
-</br>ДДобавления тренеров
+</br>Добавления тренеров
 </br> </br> </br>
 </p>
 
