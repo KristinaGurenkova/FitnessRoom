@@ -19,7 +19,7 @@
 
 # Описание базы данных:
 #### Файл базы данных называется FitnessRoom.bacpac <br/>
-Файл базы данных расположен в проекте по пути **ElectronicJournal\ElectronicJournal\bin\Debug** </br>
+Файл базы данных расположен в проекте по пути **FitnessRoom\FitnessRoom\bin\Debug** </br>
 В базе данных находятся 9 таблиц _Role_, _User_, _Trainer_, _Client_, _Schedule_, _Specialization_, _TrainingApparatus_, _Attendance_, _SeasonTicket_.
 
 - **Таблица «Role»** _(idRole, nameRole)_ содержит информацию о ролях
