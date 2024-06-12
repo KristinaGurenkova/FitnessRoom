@@ -1,0 +1,42 @@
+﻿<Window x:Class="FitnessRoom.Views.ManagerWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessRoom.Views"
+        mc:Ignorable="d"
+        Title="Окно Менеджера" Height="450" Width="810">
+    <Grid>
+        <TextBlock Text="Список клиентов" FontSize="18" Background="#808080" Margin="0,0,0,385"/>
+        <DataGrid Margin="0,25,160,0" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="На 1 месяц" Name="OneMonth" Click="OneMonth_Click"/>
+                    <MenuItem Header="На 6 месяцев" Name="SixMonth" Click="SixMonth_Click"/>
+                    <MenuItem Header="На 12 месяцев" Name="TwelveMonth" Click="TwelveMonth_Click"/>
+                    <MenuItem Header="Удалить абонемент" Name="Delete" Click="Delete_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=surnameClient}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=nameClient}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Path=middleNameClient}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Path=number}"/>
+                <DataGridTextColumn Header="Абонемент" Binding="{Binding Path=SeasonTicket.nameTicket}"/>
+                <DataGridTextColumn Header="Тренер" Binding="{Binding Path=Trainer.surnameTrainer}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Margin="640,0,0,0">
+            <TextBlock Text="Введите фамилию клиента" Margin="0 80 0 0"/>
+            <TextBox Margin="0 5 0 0" x:Name="surnameTxt" Width="145"/>
+            <Button Content="Найти" x:Name="SearchBt" Width="115" Margin="0 5 0 0" Click="SearchBt_Click"/>
+            <TextBlock Text="Введите фамилию тренера" Margin="0 50 0 0"/>
+            <TextBox Margin="0 5 0 0" x:Name="surnameTrainerTxt" Width="145"/>
+            <Button Content="Назначить" x:Name="ToAppoint" Width="117" Margin="0 5 0 0" Click="ToAppoint_Click"/>
+            <Button Content="Список тренеров" Margin="0 30 0 0" Width="122" x:Name="TrainerBt" Click="TrainerBt_Click"/>
+            <Button Content="Список тренажеров" Margin="0 10 0 0" Width="122" x:Name="AparatusBt" Click="AparatusBt_Click"/>
+            <Button Content="Сгенерировать отчет" Margin="0 10 0 0" Width="124" x:Name="ReportBt" Click="ReportBt_Click"/>
+            <Button Content="Назад" Margin="0 10 0 0" Width="115" x:Name="Back" Click="Back_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

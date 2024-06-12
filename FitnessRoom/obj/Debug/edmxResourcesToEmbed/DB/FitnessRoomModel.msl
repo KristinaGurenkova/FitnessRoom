@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище FitnessRoomModelContainer" CdmEntityContainer="FitnessRoomEntities">
+    <EntitySetMapping Name="Attendance">
+      <EntityTypeMapping TypeName="FitnessRoomModel.Attendance">
+        <MappingFragment StoreEntitySet="Attendance">
+          <ScalarProperty Name="idAttendance" ColumnName="idAttendance" />
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="countСlasses" ColumnName="countСlasses" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="FitnessRoomModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="nameClient" ColumnName="nameClient" />
+          <ScalarProperty Name="surnameClient" ColumnName="surnameClient" />
+          <ScalarProperty Name="middleNameClient" ColumnName="middleNameClient" />
+          <ScalarProperty Name="idSeasonTicket" ColumnName="idSeasonTicket" />
+          <ScalarProperty Name="idTrainer" ColumnName="idTrainer" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="idSchedule" ColumnName="idSchedule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="FitnessRoomModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+          <ScalarProperty Name="nameRole" ColumnName="nameRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedule">
+      <EntityTypeMapping TypeName="FitnessRoomModel.Schedule">
+        <MappingFragment StoreEntitySet="Schedule">
+          <ScalarProperty Name="idSchedule" ColumnName="idSchedule" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="idApparatus" ColumnName="idApparatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeasonTicket">
+      <EntityTypeMapping TypeName="FitnessRoomModel.SeasonTicket">
+        <MappingFragment StoreEntitySet="SeasonTicket">
+          <ScalarProperty Name="idSeasonTicket" ColumnName="idSeasonTicket" />
+          <ScalarProperty Name="nameTicket" ColumnName="nameTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specialization">
+      <EntityTypeMapping TypeName="FitnessRoomModel.Specialization">
+        <MappingFragment StoreEntitySet="Specialization">
+          <ScalarProperty Name="idSpecialization" ColumnName="idSpecialization" />
+          <ScalarProperty Name="nameSpecialization" ColumnName="nameSpecialization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FitnessRoomModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trainer">
+      <EntityTypeMapping TypeName="FitnessRoomModel.Trainer">
+        <MappingFragment StoreEntitySet="Trainer">
+          <ScalarProperty Name="idTrainer" ColumnName="idTrainer" />
+          <ScalarProperty Name="nameTrainer" ColumnName="nameTrainer" />
+          <ScalarProperty Name="surnameTrainer" ColumnName="surnameTrainer" />
+          <ScalarProperty Name="middleNameTrainer" ColumnName="middleNameTrainer" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idSpecialization" ColumnName="idSpecialization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingApparatus">
+      <EntityTypeMapping TypeName="FitnessRoomModel.TrainingApparatus">
+        <MappingFragment StoreEntitySet="TrainingApparatus">
+          <ScalarProperty Name="idApparatus" ColumnName="idApparatus" />
+          <ScalarProperty Name="nameApparatus" ColumnName="nameApparatus" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="accessCount" ColumnName="accessCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="FitnessRoomModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

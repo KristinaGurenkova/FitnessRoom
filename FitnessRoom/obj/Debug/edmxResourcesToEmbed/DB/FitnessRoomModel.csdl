@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FitnessRoomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="idAttendance" />
+    </Key>
+    <Property Name="idAttendance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idClient" Type="Int32" />
+    <Property Name="countСlasses" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Attendance_Client" FromRole="Attendance" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameClient" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="surnameClient" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="middleNameClient" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idSeasonTicket" Type="Int32" />
+    <Property Name="idTrainer" Type="Int32" />
+    <Property Name="number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idSchedule" Type="Int32" />
+    <NavigationProperty Name="Attendance" Relationship="Self.FK_Attendance_Client" FromRole="Client" ToRole="Attendance" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK_Client_Schedule" FromRole="Client" ToRole="Schedule" />
+    <NavigationProperty Name="SeasonTicket" Relationship="Self.FK_Client_SeasonTicket" FromRole="Client" ToRole="SeasonTicket" />
+    <NavigationProperty Name="Trainer" Relationship="Self.FK_Client_Trainer" FromRole="Client" ToRole="Trainer" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="idRole" />
+    </Key>
+    <Property Name="idRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameRole" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="idSchedule" />
+    </Key>
+    <Property Name="idSchedule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="idApparatus" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_Schedule" FromRole="Schedule" ToRole="Client" />
+    <NavigationProperty Name="TrainingApparatus" Relationship="Self.FK_Schedule_TrainingApparatus" FromRole="Schedule" ToRole="TrainingApparatus" />
+  </EntityType>
+  <EntityType Name="SeasonTicket">
+    <Key>
+      <PropertyRef Name="idSeasonTicket" />
+    </Key>
+    <Property Name="idSeasonTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameTicket" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_SeasonTicket" FromRole="SeasonTicket" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Specialization">
+    <Key>
+      <PropertyRef Name="idSpecialization" />
+    </Key>
+    <Property Name="idSpecialization" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameSpecialization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Trainer" Relationship="Self.FK_Trainer_Specialization" FromRole="Specialization" ToRole="Trainer" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Trainer">
+    <Key>
+      <PropertyRef Name="idTrainer" />
+    </Key>
+    <Property Name="idTrainer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameTrainer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="surnameTrainer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="middleNameTrainer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idUser" Type="Int32" />
+    <Property Name="idSpecialization" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Client_Trainer" FromRole="Trainer" ToRole="Client" />
+    <NavigationProperty Name="Specialization" Relationship="Self.FK_Trainer_Specialization" FromRole="Trainer" ToRole="Specialization" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Trainer_User" FromRole="Trainer" ToRole="User" />
+  </EntityType>
+  <EntityType Name="TrainingApparatus">
+    <Key>
+      <PropertyRef Name="idApparatus" />
+    </Key>
+    <Property Name="idApparatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameApparatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="accessCount" Type="Int32" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_TrainingApparatus" FromRole="TrainingApparatus" ToRole="Schedule" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idRole" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Trainer" Relationship="Self.FK_Trainer_User" FromRole="User" ToRole="Trainer" />
+  </EntityType>
+  <Association Name="FK_Attendance_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="idClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Schedule">
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="idSchedule" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="idSchedule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_SeasonTicket">
+    <End Role="SeasonTicket" Type="Self.SeasonTicket" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SeasonTicket">
+        <PropertyRef Name="idSeasonTicket" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="idSeasonTicket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Trainer">
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="idTrainer" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="idTrainer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="idRole" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="idRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_TrainingApparatus">
+    <End Role="TrainingApparatus" Type="Self.TrainingApparatus" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingApparatus">
+        <PropertyRef Name="idApparatus" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="idApparatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainer_Specialization">
+    <End Role="Specialization" Type="Self.Specialization" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialization">
+        <PropertyRef Name="idSpecialization" />
+      </Principal>
+      <Dependent Role="Trainer">
+        <PropertyRef Name="idSpecialization" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainer_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Trainer">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FitnessRoomEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Attendance" EntityType="Self.Attendance" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Schedule" EntityType="Self.Schedule" />
+    <EntitySet Name="SeasonTicket" EntityType="Self.SeasonTicket" />
+    <EntitySet Name="Specialization" EntityType="Self.Specialization" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Trainer" EntityType="Self.Trainer" />
+    <EntitySet Name="TrainingApparatus" EntityType="Self.TrainingApparatus" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Attendance_Client" Association="Self.FK_Attendance_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Schedule" Association="Self.FK_Client_Schedule">
+      <End Role="Schedule" EntitySet="Schedule" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_SeasonTicket" Association="Self.FK_Client_SeasonTicket">
+      <End Role="SeasonTicket" EntitySet="SeasonTicket" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Trainer" Association="Self.FK_Client_Trainer">
+      <End Role="Trainer" EntitySet="Trainer" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_TrainingApparatus" Association="Self.FK_Schedule_TrainingApparatus">
+      <End Role="TrainingApparatus" EntitySet="TrainingApparatus" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainer_Specialization" Association="Self.FK_Trainer_Specialization">
+      <End Role="Specialization" EntitySet="Specialization" />
+      <End Role="Trainer" EntitySet="Trainer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainer_User" Association="Self.FK_Trainer_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Trainer" EntitySet="Trainer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

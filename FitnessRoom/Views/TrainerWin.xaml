@@ -1,0 +1,30 @@
+﻿<Window x:Class="FitnessRoom.Views.TrainerWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessRoom.Views"
+        mc:Ignorable="d"
+        Title="Окно тренера" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="Расписание" FontSize="18" Background="#808080" Margin="0,0,0,385"/>
+        <DataGrid Margin="0,25,190,0" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=surnameClient}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=nameClient}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Path=middleNameClient}"/>
+                <DataGridTextColumn Header="Дата тренировки" Binding="{Binding Path=Schedule.date}"/>
+                <DataGridTextColumn Header="Тренажер" Binding="{Binding Path=Schedule.TrainingApparatus.nameApparatus}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Margin="615,0,0,0">
+            <TextBlock Margin="0 100 0 0" Text="Введите дату тренировки" Width="165"/>
+            <TextBox  Margin="0 5 0 0" Width="170" x:Name="dataTxt"/>
+            <TextBlock Margin="0 10 0 0" Text="Введите название тренажера" Width="165"/>
+            <TextBox  Margin="0 5 0 0" Width="165" x:Name="nameApparatusTxt"/>
+            <Button Content="Записать" Margin="0 8 0 0" Width="100" x:Name="ForTrainingBt" Click="ForTrainingBt_Click"/>
+            <Button Content="Посещаймость" Margin="0 30 0 0" Width="100" x:Name="AttendanceBt" Click="AttendanceBt_Click"/>
+            <Button Content="Назад" Margin="0 110 0 0" Width="100" x:Name="Back" Click="Back_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
