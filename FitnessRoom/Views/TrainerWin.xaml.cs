@@ -56,9 +56,7 @@ namespace FitnessRoom.Views
 
 			}
 			catch
-			{
-				MessageBox.Show("угугугугугу");
-			}
+			{}
 			Update();
 		}
 

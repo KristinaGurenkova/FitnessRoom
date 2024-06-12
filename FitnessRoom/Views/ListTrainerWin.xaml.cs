@@ -98,7 +98,7 @@ namespace FitnessRoom.Views
 			}
 			catch
 			{
-				MessageBox.Show("Товар не был выбран");
+				MessageBox.Show("Тренер не был выбран");
 			}
 		}
 
