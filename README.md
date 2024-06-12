@@ -29,7 +29,7 @@
 - **Таблица «Schedule»** _(idSchedule, date, idApparatus)_ содержит информацию о расписании
 - **Таблица «Specialization»** _(idSpecialization, nameSpecialization)_ содержит информацию о специализации
 - **Таблица «TrainingApparatus»** _(idApparatus, nameApparatus, description, accessCount)_ содержит информацию о тренажерах
-- **Таблица «Attendance»** _(idAttendance, idClient, countClasses)_ содержит информацию о посещаймости
+- **Таблица «Attendance»** _(idAttendance, idClient, countClasses)_ содержит информацию о посещаемости
 - **Таблица «SeasonTicket** _(idSeasonTicket, nameTicket)_ содержит информацию об абонементах
 
 # Скриншоты приложения:
