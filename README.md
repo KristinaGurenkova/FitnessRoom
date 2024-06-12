@@ -48,7 +48,7 @@
 
 <p align="center">
   <img <img src="https://github.com/KristinaGurenkova/FitnessRoom/blob/main/Screenshots/AttWin.png">
-</br>Окно посещаймости
+</br>Окно посещаемости
 </br> </br> </br>
 </p>
 
